@@ -1,0 +1,15 @@
+<html>
+<head>
+	<script type="text/javascript">
+		var person = {name:"leon"};
+		console.log("name is:"+person.name);
+		console.log("name in preson is:"+ ("name" in person));
+		console.log("property is enumerable is "+person.propertyIsEnumerable("name"));
+		Object.defineProperty(person,"name",{enumerable:false});
+		console.log("property is enumerable is "+person.propertyIsEnumerable("name"));
+		var properties = Object.keys(person);
+		console.log("the person's own property length is "+ properties.length);
+	</script>
+</head>
+<body> javascript property attributes</body>
+</html>
