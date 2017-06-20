@@ -9,6 +9,18 @@
 		console.log("property is enumerable is "+person.propertyIsEnumerable("name"));
 		var properties = Object.keys(person);
 		console.log("the person's own property length is "+ properties.length);
+		person.name = "Toby";
+		console.log("the name is "+person.name);
+		//the property "name" can be reset, but can not be deleted
+		Object.defineProperty(person,"name",{configurable:false});
+		person.name="Tom";
+		console.log("the name is "+person.name);
+		delete person.name;
+		console.log("the name is "+person.name);
+		person.age = 6;
+		console.log("the age is "+person.age);
+		delete person.age;
+		console.log("the age is "+person.age);
 	</script>
 </head>
 <body> javascript property attributes</body>
