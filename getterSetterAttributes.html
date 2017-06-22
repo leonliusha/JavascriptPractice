@@ -1,0 +1,66 @@
+<html>
+<head>
+	<script type="text/javascript">
+		var person = {
+			_name:"Leon",
+			get name(){
+				console.log("someone is getting the person name");
+				return this._name;
+				console.log("after getting the name"); //will never be called
+			},
+			set name(value){
+				console.log("someone is setting the person name: ");
+				this._name = value;
+				console.log("after setting the name");
+			}
+		};
+		console.log("person.name is:"+person.name);
+		person.name = "tony";
+		console.log("person.name is:"+person.name);
+		
+		
+		
+		//create an animal object
+		var animal ={
+			_type : "dog"
+		};
+		
+		Object.defineProperty(animal,"type",{
+			get:function(){
+				console.log("someone is getting the animal type");
+				return this._type;
+			},
+			set:function(value){
+				console.log("someone is setting the animal name: ");
+				this._type = value;
+				console.log("after setting the type");
+			},
+			configurable:true,
+			enumerable:true
+		});
+		
+		console.log("animal type is:"+animal.type);
+		animal.type="Cat";
+		console.log("animal type is:"+animal.type);
+		console.log("type in animal is:"+("type" in animal));
+		console.log("animal.propertyIsEnumerable is "+animal.propertyIsEnumerable("type"));
+		
+		
+		Object.defineProperty(animal,"type",{
+			configurable:false,  //type can not be removed
+			enumerable:false,   //type can not be enumerated
+			set : function(){}  //type can not be set to other value, read only
+		});
+		delete animal.type;
+		console.log("delete animal.type");
+		console.log("type in animal is:"+("type" in animal));
+		console.log("animal.propertyIsEnumerable is:"+animal.propertyIsEnumerable("type"));
+		animal.type = "Pig";
+		console.log("animal.type = pig");
+		console.log("animal.type is:"+animal.type);
+	</script>
+<head>
+<body>
+
+</body>	
+<html>
