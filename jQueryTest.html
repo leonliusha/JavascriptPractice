@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>attributeContains demo</title>
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+<div id="div0" style="background-color: yellow">
+	<input name="man-news">
+</div>
+<div id="div1" style="background-color: red">
+	<input name="div1-man-milkman">
+</div>
+<input name="letterman2">
+<input name="newmilk">
+ 
+<script>
+$( "input[name*='man-milkman']" ).val( "has man in it!" );
+$( "input[name*='man-milkman']" ).parent().css("background-color","black");
+</script>
+ 
+</body>
+</html>
