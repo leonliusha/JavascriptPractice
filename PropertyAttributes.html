@@ -22,6 +22,20 @@
 		//will be deleted
 		delete person.age;
 		console.log("the age is "+person.age);
+      
+		//setTimeout with anonymous function 
+		var obj = {
+		_aa : function(){
+		    console.log("haha");
+		},
+		_bb: function(){
+			console.log(this);
+		    var that = this;
+			setTimeout(function(){console.log(that);that._aa();},1000);
+		}};
+		obj._bb(); 
+		
+
 	</script>
 </head>
 <body> javascript property attributes</body>
